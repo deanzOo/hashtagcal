@@ -1,0 +1,27 @@
+{
+  "name": "calproject",
+  "version": "1.0.0",
+  "description": "\"# calProject\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeanSami/calProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DeanSami/calProject/issues"
+  },
+  "homepage": "https://github.com/DeanSami/calProject#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "bootstrap": "^4.1.3",
+    "express": "^4.16.4",
+    "jspdf-customfonts": "0.0.4-rc.4",
+    "popper.js": "^1.14.6",
+    "toastr": "^2.1.4"
+  }
+}

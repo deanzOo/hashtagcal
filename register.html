@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>#CAL - הרשמה</title>
+    <link rel="shortcut icon" type="image/x-icon" href="icon-cal.png" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-21187946-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-21187946-2');
+    </script>
+
+    <!--jQuery-->
+    <script src="lib/jquery/moment.min.js"></script>
+    <script src="lib/jquery/jquery-1.12.4.js"></script>
+    <script src="lib/jquery/popper.min.js"></script>
+
+    <!-- toastr -->
+    <link rel="stylesheet" href="lib/toastr/toastr.min.css">
+    <script src="lib/toastr/toastr.min.js"></script>
+
+    <!--bootstrap-->
+    <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css" crossorigin="anonymous">
+    <script src="lib/bootstrap/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--calendar includes-->
+    <script src="js/apiRequest.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    <!--check can activate page-->
+    <script src="js/canActivate.js"></script>
+</head>
+<body>
+
+<div class="loadingHide">
+    <div id="loading"></div>
+</div>
+
+<div class="user-form">
+    <form class="register-form">
+        <h2>צור חשבון</h2>
+        <p class="lead"></p>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <input type="text" minlength="3" maxlength="25" class="form-control field-register-fullname" name="fullname"
+                       placeholder="שם מלא" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                <input type="username" minlength="5" maxlength="35" class="form-control field-register-username"
+                       name="username" placeholder="כתובת מייל" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <input type="password" minlength="6" maxlength="20" class="form-control field-login-password" name="password" placeholder="סיסמה">
+                <span toggle="#password-field" class="fa fa-fw fa-eye-slash field-icon toggle-password"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+				<span class="input-group-addon">
+					<i class="fa fa-lock"></i>
+				</span>
+                <input type="password" minlength="6" maxlength="20" class="form-control field-login-password2" name="confirm_password" placeholder="אשר סיסמה">
+                <span toggle="#password-field" class="fa fa-fw fa-eye-slash field-icon toggle-password2"></span>
+            </div>
+        </div>
+        <input type="checkbox" onclick="PopDetailsEditor()" id="checkEditor" name="checkEditor">
+        <label class="text-primary">הירשם כעורך תוכן</label>
+        <div class="form-group editorDetails">
+
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-list"></i></span>
+                <select id="categoryRegisterSelect" class="custom-select custom-select form-control" name="category">
+                </select>
+            </div>
+
+        </div>
+        <div class="form-group editorDetails">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                <input type="number" class="form-control field-register-experience"
+                       maxlength="3" name="experience" placeholder="שנות ניסיון">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="g-recaptcha" data-sitekey="6LdBDH8UAAAAAAaQkH_6v9fZE21VpD7Q4IpL3igJ"
+                 data-callback="recaptcha_callback"></div>
+        </div>
+        <div class="form-group">
+            <button onclick="register({
+            fullname: fullname.value,
+            username: username.value,
+            password: password.value,
+            password2: confirm_password.value,
+            editor: document.getElementById('checkEditor').checked,
+            category: category.value,
+            experience: experience.value
+            })" class="btn btn-primary btn-block btn-lg" id="submit_form" type="button" disabled>הירשם
+            </button>
+        </div>
+        <p class="text-right">כבר רשום?<a href="login.html" class="text-primary">התחבר עכשיו!</a></p>
+    </form>
+</div>
+<div class="copyright text-dark text-center pt-2">
+    <p class="text-center">© כל הזכויות שמורות - #CAL קבוצה 20 יסודות תוכנה</p>
+</div>
+</body>
+</html>
